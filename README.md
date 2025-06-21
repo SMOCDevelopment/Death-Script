@@ -9,6 +9,9 @@ A standalone, immersive death system for FiveM using `ox_lib`. This script repla
 
 ---
 
+
+![Preview](https://media.discordapp.net/attachments/1376026259594940576/1385763951974940756/image.png?ex=685740c0&is=6855ef40&hm=4066fc0e3d74292b24d51e8b28c0951638934c217e8d823b7e0ce218cf12517f&=&format=webp&quality=lossless&width=1522&height=856)
+![Preview](https://media.discordapp.net/attachments/1376026259594940576/1385764068526133338/image.png?ex=685740dc&is=6855ef5c&hm=04b62db254249d44d3f360fd3e945db50408ce4d9be0a0d0e73358b0856b39f9&=&format=webp&quality=lossless)
 ## 📦 Features
 
 - 🩸 Custom **bloody screen overlay** and centered "You are dead" message.
