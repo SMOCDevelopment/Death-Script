@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <img src="blood.png" class="blood" />
+    <div class="centered">
+        <h1>You are dead</h1>
+        <div class="box">
+            <div id="revive" class="option">Revive (E): <span id="reviveTime">...</span></div>
+            <div id="respawn" class="option">Respawn (R): <span id="respawnTime">...</span></div>
+        </div>
+        <div class="info-text">Alert emergency services: press G</div>
+    </div>
+
+    <script>
+        window.addEventListener('message', function (e) {
+            const data = e.data;
+
+            if (data.action === 'show') {
+                document.body.style.display = 'block';
+                document.getElementById('revive').classList.remove('flash');
+                document.getElementById('respawn').classList.remove('flash');
+                document.getElementById('reviveTime').textContent = data.revive;
+                document.getElementById('respawnTime').textContent = data.respawn;
+            } else if (data.action === 'hide') {
+                document.body.style.display = 'none';
+                document.getElementById('revive').classList.remove('flash');
+                document.getElementById('respawn').classList.remove('flash');
+            } else if (data.action === 'reviveTick') {
+                document.getElementById('reviveTime').textContent = data.value;
+            } else if (data.action === 'respawnTick') {
+                document.getElementById('respawnTime').textContent = data.value;
+            } else if (data.action === 'reviveReady') {
+                document.getElementById('revive').classList.add('flash');
+                document.getElementById('reviveTime').textContent = 'READY';
+            } else if (data.action === 'respawnReady') {
+                document.getElementById('respawn').classList.add('flash');
+                document.getElementById('respawnTime').textContent = 'READY';
+            }
+        });
+
+        // Ensure ox_lib notifications stay visible above NUI
+        const observer = new MutationObserver(() => {
+            document.querySelectorAll('.ox_lib_notify').forEach(el => {
+                el.style.zIndex = '99999';
+            });
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+    </script>
+</body>
+</html>

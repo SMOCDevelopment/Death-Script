@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FiveM Death Script README</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0; padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background: #f7f9fc;
+      color: #222;
+      line-height: 1.6;
+      display: flex;
+      min-height: 100vh;
+    }
+    a {
+      color: #0078d7;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      max-width: 1100px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgb(0 0 0 / 0.08);
+      overflow: hidden;
+      min-height: 600px;
+    }
+
+    .sidebar {
+      width: 180px;
+      background: #eef4fb;
+      border-right: 1px solid #d5e0f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 10px;
+      user-select: none;
+    }
+
+    .logo {
+      width: 140px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgb(0 0 0 / 0.12);
+    }
+    .ad-text {
+      color: #355ca8;
+      font-weight: 600;
+      font-size: 1rem;
+      margin-top: 8px;
+      text-align: center;
+      user-select: none;
+      line-height: 1.3;
+    }
+
+    main {
+      flex: 1;
+      padding: 30px 40px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+      color: #0078d7;
+      user-select: text;
+    }
+    .badges {
+      margin-bottom: 25px;
+    }
+    .badges a {
+      display: inline-block;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    code {
+      background: #f4f6fc;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+      font-size: 0.9rem;
+      user-select: text;
+    }
+    pre {
+      background: #f4f6fc;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      user-select: text;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e1e9ff;
+      margin: 40px 0;
+    }
+    ul {
+      list-style: inside disc;
+      margin-left: 0;
+      padding-left: 0;
+      user-select: text;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+
+    .tabs {
+      border-bottom: 3px solid #e1e9ff;
+      display: flex;
+      gap: 25px;
+      margin-bottom: 25px;
+      user-select: none;
+    }
+    .tabs button {
+      background: transparent;
+      border: none;
+      padding: 12px 25px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.25s, color 0.25s;
+      color: #555;
+    }
+    .tabs button:hover:not(.active) {
+      color: #0078d7;
+      border-bottom-color: #a3c2f4;
+    }
+    .tabs button.active {
+      color: #0078d7;
+      border-bottom-color: #0078d7;
+    }
+    .tab-content {
+      display: none;
+      user-select: text;
+      flex-grow: 1;
+    }
+    .tab-content.active {
+      display: block;
+    }
+
+    .image-container {
+      margin-top: 45px;
+      text-align: center;
+      user-select: none;
+    }
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgb(0 0 0 / 0.12);
+      user-select: none;
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 992px) {
+      .container {
+        flex-direction: column;
+        max-width: 100%;
+        min-height: auto;
+      }
+      .sidebar {
+        display: none;
+      }
+      main {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <aside class="sidebar left">
+    <img src="https://media.discordapp.net/attachments/1339654873918210128/1374557857978253372/ChatGPT_Image_May_20_2025_at_09_12_45_PM.png?ex=6856b203&is=68556083&hm=f864f0cc7bfef3219c6fa77a3e94fa37abb8ce7e0456e762769973270e28665f&=&format=webp&quality=lossless&width=960&height=960" alt="Logo" class="logo" />
+    <div class="ad-text">
+      Smoc Development releases are free 99% of the time.<br />
+      Make sure to check the discord out for WEEKLY releases.
+    </div>
+  </aside>
+
+  <main>
+    <h1>💀 FiveM Death Script (with ox_lib)</h1>
+    <div class="badges">
+      <a href="#" title="Version"><img src="https://img.shields.io/badge/version-1.0.0-blue.svg" alt="Version" /></a>
+      <a href="#" title="Status"><img src="https://img.shields.io/badge/status-active-success.svg" alt="Status" /></a>
+      <a href="https://discord.gg/pHsTfwAXbF" target="_blank" rel="noopener noreferrer" title="Join our Discord">
+        <img src="https://img.shields.io/discord/1336789892180738162?style=flat-square&logo=discord" alt="Join our Discord" />
+      </a>
+      <a href="https://www.patreon.com/c/smocdevelopment/membership" target="_blank" rel="noopener noreferrer" title="Support me on Patreon">
+        <img src="https://img.shields.io/badge/Patreon-FF424D?style=flat&logo=patreon&logoColor=white" alt="Support me on Patreon" />
+      </a>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Readme sections">
+      <button class="tab-button active" role="tab" aria-selected="true" aria-controls="desc" id="desc-tab">Description</button>
+      <button class="tab-button" role="tab" aria-selected="false" aria-controls="features" id="features-tab">Features</button>
+      <button class="tab-button" role="tab" aria-selected="false" aria-controls="config" id="config-tab">Configuration</button>
+      <button class="tab-button" role="tab" aria-selected="false" aria-controls="install" id="install-tab">Install Guide</button>
+    </div>
+
+    <section id="desc" class="tab-content active" role="tabpanel" aria-labelledby="desc-tab">
+      <p>A standalone, immersive death system for FiveM using <code>ox_lib</code>. This script replaces the default respawn behavior with a custom NUI interface, realistic delays, and optional emergency alerts — giving players full control over what happens after they die.</p>
+    </section>
+
+    <section id="features" class="tab-content" role="tabpanel" aria-labelledby="features-tab">
+      <ul>
+        <li>🩸 Custom <strong>bloody screen overlay</strong> and centered "You are dead" message.</li>
+        <li>⏳ Configurable <strong>revive (E)</strong> and <strong>respawn (R)</strong> countdowns.</li>
+        <li>🧍 Players stay dead — <strong>no automatic respawn</strong>.</li>
+        <li>📢 Press <strong>G</strong> to alert emergency services with <strong>road name</strong>.</li>
+        <li>🔔 Countdown <strong>notifications using ox_lib</strong>, visible even over UI.</li>
+        <li>🔒 Fully <strong>disable all controls</strong> while dead, except E / R / G.</li>
+        <li>⚙️ Simple configuration for enabling/disabling revive/respawn and setting timers.</li>
+      </ul>
+    </section>
+
+    <section id="config" class="tab-content" role="tabpanel" aria-labelledby="config-tab">
+      <p>You can change settings directly in <code>client.lua</code>:</p>
+      <pre><code>local config = {
+  enableRespawn = true,      -- Allow respawning at hospital
+  enableRevive = true,       -- Allow reviving in place
+  respawnDelay = 15,         -- Seconds before respawn is available
+  reviveDelay = 10,          -- Seconds before revive is available
+}
+</code></pre>
+    </section>
+
+    <section id="install" class="tab-content" role="tabpanel" aria-labelledby="install-tab">
+      <h2>Installation Guide</h2>
+      <ol>
+        <li>Download or clone this repository into your FiveM <code>resources</code> folder.</li>
+        <li>Add <code>ensure your_resource_name</code> to your <code>server.cfg</code>.</li>
+        <li>Make sure you have <code>ox_lib</code> installed and started before this resource.</li>
+        <li>Configure <code>client.lua</code> to set your preferred revive and respawn timers.</li>
+        <li>Start your server and test by dying in-game to see the custom death UI and features.</li>
+      </ol>
+      <p>Need help? Join the <a href="https://discord.gg/pHsTfwAXbF" target="_blank" rel="noopener noreferrer">Discord support server</a>.</p>
+    </section>
+
+    <div class="image-container">
+      <img src="https://media.discordapp.net/attachments/1376026259594940576/1385763951974940756/image.png?ex=685740c0&amp;is=6855ef40&amp;hm=4066fc0e3d74292b24d51e8b28c0951638934c217e8d823b7e0ce218cf12517f&amp;=&amp;format=webp&amp;quality=lossless&amp;width=1522&amp;height=856" alt="FiveM Death Script Preview" />
+      <img src="https://media.discordapp.net/attachments/1376026259594940576/1385764068526133338/image.png?ex=685740dc&amp;is=6855ef5c&amp;hm=04b62db254249d44d3f360fd3e945db50408ce4d9be0a0d0e73358b0856b39f9&amp;=&amp;format=webp&amp;quality=lossless" alt="FiveM Death Script Preview 2" />
+    </div>
+  </main>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab-button');
+  const panels = document.querySelectorAll('.tab-content');
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      // Deactivate all tabs
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      // Hide all panels
+      panels.forEach(panel => panel.classList.remove('active'));
+
+      // Activate clicked tab and panel
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      panels[i].classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
